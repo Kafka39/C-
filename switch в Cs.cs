@@ -17,6 +17,8 @@ namespace ConsoleApp1
             switch(aad)
             {
                 case "1":
+                case "3":
+                case "4":
                     {
                         Console.WriteLine("Вы выбрали 1");
                     }
@@ -26,6 +28,11 @@ namespace ConsoleApp1
                 case "2":
                     {
                         Console.WriteLine("Вы выбрали 2");
+                    }
+                    break;
+                default:
+                    {
+                        Console.WriteLine("what?");
                     }
                     break;
             }
