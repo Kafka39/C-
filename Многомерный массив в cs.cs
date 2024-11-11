@@ -72,3 +72,46 @@ namespace ConsoleApp1
         }
     }
 }
+
+
+// NEW ADD #2 RANDOM
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.OutputEncoding= Encoding.Unicode;
+            Console.InputEncoding = Encoding.Unicode;
+
+            int[,] arr = new int[5, 10];
+
+            Random rand = new Random();
+
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                Console.WriteLine("\nIndex: " + i + " Length element: " + (arr.GetLength(0) + 1));
+                Console.Write("Значения первого элемента: ");
+
+                Console.Write(arr[0, i]);
+
+                for (int j = 0; j < arr.GetLength(1); j++)
+                {
+                    arr[i, j] = rand.Next(10, 30);
+                    Console.Write("\t" + arr[i, j]);
+
+                }
+            }
+
+            Console.ReadLine();
+        }
+    }
+}
