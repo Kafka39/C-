@@ -25,7 +25,7 @@ namespace ConsoleApp1
             {
                 Console.SetCursorPosition(0, 10);
 
-                for (int i = 0; i < games.GetLength(0); i++) 
+                for (int i = 0; i <= games.GetLength(0); i++) 
                 {
                     Console.WriteLine($"Значения в массиве: {games[0, i]}");
                 
