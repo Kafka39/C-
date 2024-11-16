@@ -219,3 +219,97 @@ namespace ConsoleApp1
         }
     }
 }
+
+
+// UPD 4:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.OutputEncoding= Encoding.Unicode;
+            Console.InputEncoding = Encoding.Unicode;
+
+            bool isOpen = true;
+
+            string[,] games =
+            {
+                { "Need for Speed Most Wanted", "GTA San Andreas - Grand Theft Auto", "Fallout 4"},
+                { "EA SPORTS FIFA 23", "eFootball 2025", "FIFA Online 2" }
+            };
+
+            while (isOpen)
+            {
+                Console.SetCursorPosition(0, 20);
+                Console.WriteLine("Значения в массивов:");
+                for (int i = 0; i < games.GetLength(0); i++) 
+                {
+                    for (int j = 0; j < games.GetLength(1); j++)
+                    {
+                        Console.Write($"{games[i, j]} | ");
+                    }
+                    Console.WriteLine();
+                }
+                
+
+                Console.SetCursorPosition(0, 0);
+                Console.WriteLine("Опции массива: ");
+                Console.WriteLine("1 - выбрать строку в массива");
+                Console.WriteLine("2 - поиск значения по имени");
+                Console.WriteLine("3 - завершить программа");
+
+                switch(Convert.ToInt32(Console.ReadLine()))
+                {
+                    case 1:
+                        Console.WriteLine("Выберите столбец в двумерном массива: ");
+                        int userColumn = Convert.ToInt32(Console.ReadLine()) - 1;
+
+                        if(games.Length <= userColumn || userColumn < 0)
+                        {
+                            Console.WriteLine("Нет такого столбца в массиве");
+                            break;
+                        }
+                        Console.WriteLine("Выберите значения столбца: ");
+                        int columnValue = Convert.ToInt32(Console.ReadLine()) - 1;
+
+                        Console.WriteLine(games[userColumn, columnValue]);
+                        break;
+
+                    case 2:
+                        string value = Console.ReadLine();
+                        bool valueIsFound = false;
+
+                        for (int i = 0; i < games.GetLength(0); i++)
+                        {
+                            for (int j = 0; j < games.GetLength(0); j++)
+                            {
+                                if (value.ToLower() == games[i, j].ToLower())
+                                {
+                                    Console.WriteLine($"Игра {games[i, j]} найдена. Находится по адресу {i + 1} | {j + 1}");
+                                    valueIsFound = true;
+                                }
+                            }
+                        }
+                        if (valueIsFound == false)
+                        {
+                            Console.WriteLine("Игра не обнаружена или вы указали некорректное название.");
+                        }
+                        break;
+                    case 3:
+                        isOpen = false;
+                        break;
+                }
+
+                Console.ReadKey();
+            }
+        }
+    }
+}
