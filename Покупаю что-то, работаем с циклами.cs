@@ -93,9 +93,11 @@ namespace ConsoleApp1
                 {
                     for (int j = 0; j < games.GetLength(1); j++)
                     {
-                        Console.WriteLine(games[i, j]);
+                        Console.Write($"{games[i, j]} | ");
                     }
+                    Console.WriteLine();
                 }
+                
 
                 Console.SetCursorPosition(0, 0);
                 Console.WriteLine("Опции массива: ");
@@ -106,7 +108,7 @@ namespace ConsoleApp1
                 {
                     case 1:
                         Console.WriteLine("Выберите столбец в двумерном массива: ");
-                        int userColumn = Convert.ToInt32(Console.ReadLine());
+                        int userColumn = Convert.ToInt32(Console.ReadLine()) - 1;
 
                         if(games.Length <= userColumn || userColumn < 0)
                         {
@@ -114,7 +116,7 @@ namespace ConsoleApp1
                             break;
                         }
                         Console.WriteLine("Выберите значения столбца: ");
-                        int columnValue = Convert.ToInt32(Console.ReadLine());
+                        int columnValue = Convert.ToInt32(Console.ReadLine()) - 1;
 
                         Console.WriteLine(games[userColumn, columnValue]);
                         break;
@@ -128,4 +130,3 @@ namespace ConsoleApp1
         }
     }
 }
-
